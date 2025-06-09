@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+
+
+    <script>
+    tailwind.config = {
+        darkMode: 'class',
+        theme: {
+            extend: {
+                colors: {
+                    primary: {
+                        light: '#4f46e5',
+                        dark: '#6366f1',
+                    },
+                    secondary: {
+                        light: '#f43f5e',
+                        dark: '#fb7185',
+                    }
+                },
+                animation: {
+                    'text-scroll': 'text-scroll 13s linear infinite',
+                    'text-scroll-reverse': 'text-scroll-reverse 13s linear infinite'
+                },
+                keyframes: {
+                    'text-scroll': {
+                        '0%': { transform: 'translateX(100%)' },
+                        '100%': { transform: 'translateX(-100%)' },
+                    },
+                    'text-scroll-reverse': {
+                        '0%': { transform: 'translateX(-100%)' },
+                        '100%': { transform: 'translateX(100%)' },
+                    }
+                },
+                fontFamily: {
+                    orbitron: ['Orbitron', 'sans-serif']
+                }
+            }
+        }
+    }
+</script>
+
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .bg-gradient-light {
+                background: linear-gradient(135deg, #eaecf3 0%, #e0d4db 100%);
+            }
+            .bg-gradient-dark {
+                background: linear-gradient(135deg, #1e1d30 0%, #1b1215 100%);
+            }
+            .glassmorphism {
+                background: rgba(255, 255, 255, 0.25);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.18);
+            }
+            .glassmorphism-dark {
+                background: rgba(0, 0, 0, 0.25);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .tech-text {
+                font-family: 'Courier New', monospace;
+                font-weight: bold;
+                letter-spacing: 0.2em;
+                text-transform: uppercase;
+            }
+        }
+    </style>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            /* Previous styles remain... */
+            
+            /* Add these new animation styles */
+            .page-transition {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 9999;
+                background: linear-gradient(135deg, #4f46e5 0%, #f43f5e 100%);
+                opacity: 0;
+                pointer-events: none;
+                transform: scale(1.2);
+                transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            }
+            .page-transition.active {
+                opacity: 1;
+                transform: scale(1);
+            }
+            .dark .page-transition {
+                background: linear-gradient(135deg, #6366f1 0%, #fb7185 100%);
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-light dark:bg-gradient-dark transition-colors duration-300">
+    <header class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <!-- Logo -->
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10 text-black dark:text-white">
+                <path fill-rule="evenodd" d="M12.963 2.286a.75.75 0 00-1.071-.136 9.742 9.742 0 00-3.539 6.176 7.547 7.547 0 01-1.705-1.715.75.75 0 00-1.152-.082A9 9 0 1015.68 4.534a7.46 7.46 0 01-2.717-2.248zM15.75 14.25a3.75 3.75 0 11-7.313-1.172c.628.465 1.35.81 2.133 1a5.99 5.99 0 011.925-3.546 3.75 3.75 0 013.255 3.718z" clip-rule="evenodd" />
+            </svg>
+        </div>
+
+        <!-- Theme toggle and Download CV button -->
+        <div class="flex items-center space-x-4">
+    <a href="#" id="download-cv" 
+       class="px-6 py-2 rounded-lg font-medium transition-all transform hover:scale-105 shadow-md 
+              glassmorphism dark:glassmorphism-dark text-gray-800 dark:text-white border border-white/20">
+        Download CV
+    </a>
+</div>
+
+    </header>
+    <main class="flex flex-col items-center justify-center min-h-[calc(100vh-80px)] px-6 py-5 space-y-10">
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7 text-black dark:text-white">
+                <path fill-rule="evenodd" d="M12.963 2.286a.75.75 0 00-1.071-.136 9.742 9.742 0 00-3.539 6.176 7.547 7.547 0 01-1.705-1.715.75.75 0 00-1.152-.082A9 9 0 1015.68 4.534a7.46 7.46 0 01-2.717-2.248zM15.75 14.25a3.75 3.75 0 11-7.313-1.172c.628.465 1.35.81 2.133 1a5.99 5.99 0 011.925-3.546 3.75 3.75 0 013.255 3.718z" clip-rule="evenodd" />
+            </svg><span class="font-orbitron px-2 tracking-wider text-sm dark:text-white">RAQUE CANETE</span>
+        </div>
+    <!-- First Line (scrolling left) -->
+    <div class="relative overflow-hidden w-full">
+        <div class="animate-text-scroll whitespace-nowrap text-[4.5rem] md:text-[8rem] font-orbitron font-extrabold text-black dark:text-gray-200 ">
+            FRONTEND DEVELOPER • UI/UX DESIGNER • FRONTEND DEVELOPER • UI/UX DESIGNER •
+        </div>
+    </div>
+
+    <!-- Second Line (scrolling right) -->
+    <div class="relative overflow-hidden w-full">
+        <div class="animate-text-scroll-reverse whitespace-nowrap text-[4.5rem] md:text-[8rem] font-orbitron font-extrabold text-black dark:text-gray-200">
+            BACKEND SURVIVOR • BUILDING USER INTERFACE (UI) • BACKEND SURVIVOR • BUILDING USER INTERFACE (UI) •
+        </div>
+    </div>
+  <div class="w-12 h-12 flex items-center justify-center rounded-full bg-gray-300 dark:bg-gray-700 cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+  <svg class="w-5 h-5 text-black dark:text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+  </svg>
+</div>
+
+</main>
+<style>
+  /* Add these styles to your existing CSS */
+  .section-hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+  }
+  
+  .section-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .glassmorphism1, .glassmorphism-dark {
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+  }
+  
+  .glassmorphism1:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .glassmorphism-dark:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Add a subtle pulse animation to the motto section */
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+  }
+  
+  #motto .glassmorphism1{
+    animation: pulse 8s infinite ease-in-out;
+  }
+  
+  #motto .glassmorphism-dark {
+    animation: pulse 8s infinite ease-in-out;
+  }
+</style>
+
+<section id="about" class="min-h-screen flex items-center justify-center px-6 py-20 bg-gradient-light dark:bg-gradient-dark section-hidden">
+  <div class="max-w-7xl w-full glassmorphism1 dark:glassmorphism-dark p-8 md:p-12 shadow-xl text-gray-800 dark:text-gray-100">
+    <h2 class="text-4xl md:text-7xl font-extrabold mb-6 font-orbitron">About Me</h2>
+    
+    <p id="typewriter" class="text-2xl md:text-3xl font-sm leading-relaxed whitespace-pre-line tracking-wider font-orbitron"></p>
+  </div>
+</section>
+
+
+ <!-- Tech Stack Section -->
+    <section class="max-w-7xl mx-auto">
+      <h2 class="text-4xl md:text-7xl font-bold text-center mb-16 text-gray-800 dark:text-gray-100">
+        My <span class="dark:text-white font-orbitron">Tech Stack</span>
+      </h2>
+
+      <!-- Scrolling Skills Row (desktop only) -->
+      <div class="relative overflow-hidden hidden md:block py-12">
+        <div id="skills-track" class="flex items-center gap-16 w-max will-change-transform">
+          <!-- JavaScript will inject items here -->
+        </div>
+      </div>
+
+      <!-- Static Grid for smaller screens -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 mt-12 md:hidden">
+        <div class="flex flex-col items-center">
+          <div class="w-20 h-20 flex items-center justify-center mb-3">
+            <img src="https://cdn.worldvectorlogo.com/logos/visual-studio-code-1.svg" alt="VS Code" class="w-full h-full object-contain animate-float" />
+          </div>
+          <span class="text-xl font-medium text-gray-600 dark:text-gray-300 font-orbitron">VS Code</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="w-20 h-20 flex items-center justify-center mb-3">
+            <img src="https://cdn.worldvectorlogo.com/logos/figma-1.svg" alt="Figma" class="w-full h-full object-contain animate-float" />
+          </div>
+          <span class="text-xl font-medium text-gray-600 dark:text-gray-300 font-orbitron">Figma</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="w-20 h-20 flex items-center justify-center mb-3">
+            <img src="https://cdn.worldvectorlogo.com/logos/html-1.svg" alt="HTML5" class="w-full h-full object-contain animate-float" />
+          </div>
+          <span class="text-xl font-medium text-gray-600 dark:text-gray-300 font-orbitron">HTML5</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="w-20 h-20 flex items-center justify-center mb-3">
+            <img src="https://cdn.worldvectorlogo.com/logos/css-3.svg" alt="CSS3" class="w-full h-full object-contain animate-float" />
+          </div>
+          <span class="text-xl font-medium text-gray-600 dark:text-gray-300 font-orbitron">CSS3</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="w-20 h-20 flex items-center justify-center mb-3">
+            <img src="https://cdn.worldvectorlogo.com/logos/tailwind-css-2.svg" alt="Tailwind CSS" class="w-full h-full object-contain animate-float" />
+          </div>
+          <span class="text-xl  font-medium text-gray-600 dark:text-gray-300 font-orbitron">Tailwind</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="w-20 h-20 flex items-center justify-center mb-3">
+            <img src="https://cdn.worldvectorlogo.com/logos/vue-9.svg" alt="Vue.js" class="w-full h-full object-contain animate-float" />
+          </div>
+          <span class="text-xl font-medium text-gray-600 dark:text-gray-300 font-orbitron">Vue.js</span>
+        </div>
+      </div>
+    </section>
+
+  <!-- JavaScript for Carousel Animation -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const skills = [
+        { name: 'VS Code', logo: 'https://cdn.worldvectorlogo.com/logos/visual-studio-code-1.svg' },
+        { name: 'Figma', logo: 'https://cdn.worldvectorlogo.com/logos/figma-1.svg' },
+        { name: 'HTML5', logo: 'https://cdn.worldvectorlogo.com/logos/html-1.svg' },
+        { name: 'CSS3', logo: 'https://cdn.worldvectorlogo.com/logos/css-3.svg' },
+        { name: 'JavaScript', logo: 'https://cdn.worldvectorlogo.com/logos/javascript-1.svg' },
+        { name: 'Tailwind CSS', logo: 'https://cdn.worldvectorlogo.com/logos/tailwind-css-2.svg' },
+        { name: 'Vue.js', logo: 'https://cdn.worldvectorlogo.com/logos/vue-9.svg' },
+        { name: 'React', logo: 'https://cdn.worldvectorlogo.com/logos/react-2.svg' }
+      ];
+
+      const track = document.getElementById('skills-track');
+      const duplicate = [...skills, ...skills];
+
+      duplicate.forEach(skill => {
+        const div = document.createElement('div');
+        div.className = 'flex flex-col items-center flex-shrink-0 w-28';
+        div.innerHTML = `
+          <div class="w-20 h-20 flex items-center justify-center mb-2">
+            <img src="${skill.logo}" alt="${skill.name}" class="w-full h-full object-contain hover:scale-110 transition-transform duration-300 animate-float">
+          </div>
+          <span class="text-xs font-medium text-gray-600 dark:text-gray-300">${skill.name}</span>
+        `;
+        track.appendChild(div);
+      });
+
+      let offset = 0;
+      const speed = 0.5;
+
+      function scrollLoop() {
+        offset -= speed;
+        if (Math.abs(offset) >= track.scrollWidth / 2) {
+          offset = 0;
+        }
+        track.style.transform = `translateX(${offset}px)`;
+        requestAnimationFrame(scrollLoop);
+      }
+
+      if (window.innerWidth >= 768) scrollLoop();
+    });
+  </script>
+
+
+<section id="motto" class="min-h-screen flex items-center justify-center px-6 py-20 bg-gradient-light dark:bg-gradient-dark section-hidden">
+  <div class="glassmorphism1 dark:glassmorphism-dark p-12 rounded-xl shadow-xl max-w-8xl text-center">
+    <h2 class="text-6xl md:text-8xl font-extrabold font-orbitron text-gray-900 dark:text-gray-100 leading-tight py-12">
+     Hoping AI doesn't take over my job ... but also hoping it finishes my code...
+    </h2>
+    <span class="text-lg dark:text-gray-100 tracking-wider font-orbitron">-RAQUE CANETE</span>
+  </div>
+</section>
+
+<script>
+  // Typewriter effect
+  const typewriterText = `
+Hi, I'm Raque, a passionate Frontend Developer based on Philippines.
+I love crafting visually appealing, responsive interfaces and bringing UX ideas to life with clean code.
+When I'm not coding, I'm probably sketching UI ideas, hiking through nature, or jamming to synthwave beats.
+Let's build something amazing together.
+  `;
+
+  const typewriterEl = document.getElementById('typewriter');
+  let index = 0;
+
+  function typeWriter() {
+    if (index < typewriterText.length) {
+      typewriterEl.innerHTML += typewriterText.charAt(index);
+      index++;
+      setTimeout(typeWriter, 13); // typing speed
+    }
+  }
+
+  // Scroll animation observer
+  const sections = document.querySelectorAll('.section-hidden');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('section-visible');
+        
+        // Add extra animation for motto section
+        if (entry.target.id === 'motto') {
+          entry.target.querySelector('div').style.transform = 'scale(1.05)';
+          setTimeout(() => {
+            entry.target.querySelector('div').style.transform = 'scale(1)';
+          }, 300);
+        }
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+  });
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+
+  // Start typewriter effect when about section is visible
+  const aboutObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && typewriterEl.innerHTML === '') {
+        typeWriter();
+      }
+    });
+  }, { threshold: 0.5 });
+
+  aboutObserver.observe(document.getElementById('about'));
+
+  // Add parallax effect on scroll
+  window.addEventListener('scroll', () => {
+    const scrollPosition = window.scrollY;
+    const aboutSection = document.getElementById('about');
+    const mottoSection = document.getElementById('motto');
+    
+    if (aboutSection) {
+      aboutSection.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+    }
+    
+    if (mottoSection) {
+      mottoSection.style.backgroundPositionY = `${scrollPosition * 0.3}px`;
+    }
+  });
+</script>
+ <style>
+    .card-hover {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: transform;
+    }
+    .card-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    .social-card {
+        transition: all 0.3s ease, transform 0.2s ease;
+    }
+    .social-card:hover {
+        transform: scale(1.05) translateY(-4px);
+    }
+    .profile-img {
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    .profile-img:hover {
+        transform: rotate(5deg) scale(1.05);
+    }
+    .resume-btn {
+        transition: all 0.3s ease;
+        background-size: 200% auto;
+    }
+    .resume-btn:hover {
+        background-position: right center;
+    }
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+    .floating {
+        animation: float 6s ease-in-out infinite;
+    }
+    
+    /* Enhanced glassmorphism effect */
+    .glassmorphism {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    /* Gradient backgrounds for social cards */
+    .facebook-gradient {
+        background: linear-gradient(135deg, #4b97fa 0%, #2063a7 100%);
+    }
+    .instagram-gradient {
+        background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+    }
+    .github-gradient {
+        background: linear-gradient(135deg, #5e5858 0%, #afa7a7 100%);
+    }
+    .linkedin-gradient {
+        background: linear-gradient(135deg, #9ba9b6 0%, #074a8a 100%);
+    }
+
+    /* Mobile-specific adjustments */
+    @media (max-width: 767px) {
+        .profile-section {
+            padding: 1rem;
+            height: auto;
+            min-height: 100vh;
+        }
+        .card-hover {
+            flex-direction: column;
+            padding: 1.5rem;
+            height: auto;
+        }
+        .profile-info {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+        .social-grid {
+            width: 100%;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .profile-img {
+            width: 80px;
+            height: 80px;
+        }
+        .floating {
+            display: none; /* Hide decorative elements on mobile */
+        }
+        .button-group {
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .button-group button {
+            width: 100%;
+        }
+    }
+
+    /* Tablet adjustments */
+    @media (min-width: 768px) and (max-width: 1023px) {
+        .card-hover {
+            flex-direction: column;
+            height: auto;
+            padding: 2rem;
+        }
+        .profile-info, .social-grid {
+            width: 100%;
+        }
+        .profile-info {
+            margin-bottom: 2.5rem;
+        }
+    }
+</style>
+
+<section class="max-w-7xl mx-auto px-4 sm:px-6 min-h-screen py-12 sm:py-20 flex items-center justify-center profile-section">
+    <!-- Enhanced Main Card - Wider and Taller -->
+    <div class="flex flex-col md:flex-row items-center gap-6 sm:gap-8  dark:bg-gray-800 p-6 sm:p-8 rounded-3xl shadow-xl card-hover border border-gray-100 dark:border-gray-700 w-full max-w-9xl h-auto sm:h-[65vh]">
+        <!-- Profile Info -->
+        <div class="flex flex-col md:flex-row items-center gap-4 sm:gap-6 md:w-1/2 profile-info">
+            <div class="relative">
+                <img src="./img/profile-removebg-preview.png" alt="Profile" class="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover profile-img border border-black dark:border-gray-700">
+                <div class="absolute -bottom-2 -right-2 bg-green-500 rounded-full w-6 h-6 sm:w-7 sm:h-7 border-2 border-white dark:border-gray-800"></div>
+            </div>
+            <div class="text-center md:text-left">
+                <h1 class="text-3xl sm:text-4xl font-bold dark:text-gray-100 bg-clip-text text-black font-orbitron">Hi, I'm Raque Canete</h1>
+                <p class="text-gray-600 dark:text-gray-300 mt-2 sm:mt-3 text-base sm:text-xl max-w-md font-orbitron">
+                    I'm a passionate web developer and designer creating beautiful, functional digital experiences. 
+                    With expertise in both frontend and UI/UX design, I bring ideas to life with clean code and 
+                    thoughtful design principles. Together lets create something new, Contact me!
+                </p>
+                
+                <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-3 mt-5 sm:mt-6 button-group">
+                    <button class="resume-btn px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg font-medium glassmorphism text-black hover:from-blue-600 hover:to-blue-700 transition-all shadow-md dark:text-gray-100">
+                        📄 Resume / CV
+                    </button>
+                    <button class="px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg font-medium bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors shadow-sm dark:text-gray-100">
+                        ✉️ Contact Me
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Cards - Updated to Facebook, Instagram, GitHub, LinkedIn -->
+        <div class="grid grid-cols-2 gap-4 sm:gap-5 md:w-1/2 social-grid">
+            <!-- Facebook Card -->
+            <a href="#" class="social-card facebook-gradient rounded-xl p-4 sm:p-5 flex flex-col items-center justify-center text-white hover:shadow-lg">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/facebook.svg" class="w-7 h-7 sm:w-8 sm:h-8 mb-2 sm:mb-3" alt="Facebook">
+                <span class="text-sm sm:text-base font-medium font-orbitron">Facebook</span>
+            </a>
+            
+            <!-- Instagram Card -->
+            <a href="#" class="social-card instagram-gradient rounded-xl p-4 sm:p-5 flex flex-col items-center justify-center text-white hover:shadow-lg">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/instagram.svg" class="w-7 h-7 sm:w-8 sm:h-8 mb-2 sm:mb-3" alt="Instagram">
+                <span class="text-sm sm:text-base font-medium font-orbitron">Instagram</span>
+            </a>
+            
+            <!-- GitHub Card -->
+            <a href="#" class="social-card github-gradient rounded-xl p-4 sm:p-5 flex flex-col items-center justify-center text-white hover:shadow-lg">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/github.svg" class="w-7 h-7 sm:w-8 sm:h-8 mb-2 sm:mb-3" alt="GitHub">
+                <span class="text-sm sm:text-base font-medium font-orbitron">GitHub</span>
+            </a>
+            
+            <!-- LinkedIn Card -->
+            <a href="#" class="social-card linkedin-gradient rounded-xl p-4 sm:p-5 flex flex-col items-center justify-center text-white hover:shadow-lg">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/linkedin.svg" class="w-7 h-7 sm:w-8 sm:h-8 mb-2 sm:mb-3" alt="LinkedIn">
+                <span class="text-sm sm:text-base font-medium font-orbitron">LinkedIn</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Floating Elements for Decoration (hidden on mobile) -->
+<div class="hidden sm:block fixed top-20 left-10 w-16 h-16 rounded-full bg-blue-500 opacity-10 -z-10 floating" style="animation-delay: 0s;"></div>
+<div class="hidden sm:block fixed bottom-1/4 right-20 w-24 h-24 rounded-full bg-purple-500 opacity-10 -z-10 floating" style="animation-delay: 2s;"></div>
+<div class="hidden sm:block fixed top-1/3 right-1/4 w-20 h-20 rounded-full bg-pink-500 opacity-10 -z-10 floating" style="animation-delay: 4s;"></div>
+
+<!-- JavaScript Interactions -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Resume button interaction
+        const resumeBtn = document.querySelector('.resume-btn');
+        if (resumeBtn) {
+            resumeBtn.addEventListener('click', () => {
+                // This would trigger a download in a real implementation
+                console.log('Downloading resume...');
+                
+                // Pulse animation on click
+                resumeBtn.classList.add('animate-pulse');
+                setTimeout(() => {
+                    resumeBtn.classList.remove('animate-pulse');
+                }, 500);
+            });
+        }
+
+        // Social card interactions
+        const socialCards = document.querySelectorAll('.social-card');
+        socialCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'scale(1.05) translateY(-4px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+            card.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log(`Navigating to ${card.querySelector('span').textContent}`);
+                // In real implementation: window.open(href, '_blank');
+            });
+        });
+    });
+</script>
+ <style type="text/tailwindcss">
+        @layer utilities {
+            .animation-delay-100 {
+                animation-delay: 0.1s;
+            }
+            .animation-delay-200 {
+                animation-delay: 0.2s;
+            }
+            .animation-delay-300 {
+                animation-delay: 0.3s;
+            }
+            .project-card {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.6s ease-out;
+            }
+            .project-card.animate {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 max-w-8xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-6xl font-bold text-gray-900 mb-4 font-orbitron dark:text-white">My Projects</h2>
+            <p class="text-2xl text-gray-600 max-w-2xl mx-auto font-orbitron dark:text-white">Here are some of my recent works showcasing my skills in web development and design</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project 1 -->
+            <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 glassmorphism bg-gradient-dark ">
+                <div class="h-48 overflow-hidden">
+                    <img src="./img/ecommerce.png" 
+                         alt="Project 1" 
+                         class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                </div>
+                <div class="p-6">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded ">Tailwind Css</span>
+                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">JavaScript</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2 font-orbitron dark:text-white">E-commerce Platform (Frontend)</h3>
+                    <p class="text-gray-600 mb-4 font-orbitron dark:text-white">A online store with product listings, cart functionality, and secure checkout.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://raquecanete.github.io/MGENTERPISE/" class="dark:text-blue-500 hover:text-blue-800 font-medium flex items-center text-blue-500">
+                            <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                            Live Demo
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-gray-800 font-medium flex items-center dark:text-gray-200">
+                            <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                            </svg>
+                            Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+             <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 glassmorphism bg-gradient-dark ">
+                <div class="h-48 overflow-hidden">
+                    <img src="./img/tonton.png" 
+                         alt="Project 1" 
+                         class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                </div>
+                <div class="p-6">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded ">Tailwind Css</span>
+                        <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">JavaScript</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2 font-orbitron dark:text-white">Tonton Sticker Animation</h3>
+                    <p class="text-gray-600 mb-4 font-orbitron dark:text-white">An animation of love from Tonton stickers</p>
+                    <div class="flex space-x-4">
+                        <a href="https://raquecanete.github.io/MyProject/" class="dark:text-blue-500 hover:text-blue-800 font-medium flex items-center text-blue-500">
+                            <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                            Live Demo
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-gray-800 font-medium flex items-center dark:text-gray-200">
+                            <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                            </svg>
+                            Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('animate');
+                        }, index * 100); // Stagger the animations
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            projectCards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+
+    <!-- Glassmorphism Navbar -->
+    <nav class="fixed bottom-6 left-1/2 transform -translate-x-1/2 glassmorphism dark:glassmorphism-dark rounded-full p-2 shadow-lg">
+        <div class="flex items-center space-x-4 px-4">
+            <!-- Home -->
+            <a href="#home" class="p-3 rounded-full hover:bg-white/30 dark:hover:bg-black/30 transition-all" title="Home">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-gray-700 dark:text-white">
+                    <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
+                    <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
+                </svg>
+            </a>
+            
+            <!-- About Me -->
+            <a href="#about" class="p-3 rounded-full hover:bg-white/30 dark:hover:bg-black/30 transition-all" title="About Me">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-gray-700 dark:text-white">
+                    <path fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clip-rule="evenodd" />
+                </svg>
+            </a>
+            
+            <!-- Projects/Code -->
+            <a href="#projects" class="p-3 rounded-full hover:bg-white/30 dark:hover:bg-black/30 transition-all" title="Projects">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-gray-700 dark:text-white">
+                    <path fill-rule="evenodd" d="M14.447 3.027a.75.75 0 01.527.92l-4.5 16.5a.75.75 0 01-1.448-.394l4.5-16.5a.75.75 0 01.921-.526zM16.72 6.22a.75.75 0 011.06 0l5.25 5.25a.75.75 0 010 1.06l-5.25 5.25a.75.75 0 11-1.06-1.06L21.44 12l-4.72-4.72a.75.75 0 010-1.06zm-9.44 0a.75.75 0 010 1.06L2.56 12l4.72 4.72a.75.75 0 11-1.06 1.06L.97 12.53a.75.75 0 010-1.06l5.25-5.25a.75.75 0 011.06 0z" clip-rule="evenodd" />
+                </svg>
+            </a>
+            
+            <!-- GitHub -->
+            <a href="https://github.com" target="_blank" class="p-3 rounded-full hover:bg-white/30 dark:hover:bg-black/30 transition-all" title="GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-gray-700 dark:text-white">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+            </a>
+             <button id="theme-toggle" class="p-2 rounded-full focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white">
+                <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-gray-700 dark:text-white">
+                    <path id="theme-path" d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const themePath = document.getElementById('theme-path');
+        const html = document.documentElement;
+        const downloadCv = document.getElementById('download-cv');
+
+        // Check for saved theme preference or use system preference
+        const savedTheme = localStorage.getItem('theme') || 
+                          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        html.classList.add(savedTheme);
+
+        // Set initial icon
+        updateThemeIcon(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
+            localStorage.setItem('theme', currentTheme);
+            updateThemeIcon(currentTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themePath.setAttribute('d', 'M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z');
+            } else {
+                themePath.setAttribute('d', 'M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z');
+            }
+        }
+
+        // Download CV button functionality
+        downloadCv.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Gahimo pakog resume, Huwat lang salamat');
+            // In a real implementation, you would link to an actual CV file
+            // window.location.href = '/path/to/cv.pdf';
+        });
+          // Add this new code at the bottom of your script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all navbar links that point to other HTML files
+            const navLinks = document.querySelectorAll('nav a[href$=".html"]');
+            const pageTransition = document.getElementById('page-transition');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Skip if it's an external link or anchor
+                    if (this.href.includes('aboutme.html') || this.target === '_blank') return;
+                    
+                    e.preventDefault();
+                    const href = this.href;
+                    
+                    // Activate the transition
+                    pageTransition.classList.add('active');
+                    
+                    // Wait for animation to complete then navigate
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 600); // Match this with your CSS transition duration
+                });
+            });
+
+            // Handle back/forward navigation
+            window.addEventListener('pageshow', function() {
+                pageTransition.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
