@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
     <script>
@@ -140,7 +141,7 @@
             BACKEND SURVIVOR • BUILDING USER INTERFACE (UI) • BACKEND SURVIVOR • BUILDING USER INTERFACE (UI) •
         </div>
     </div>
-  <div class="w-12 h-12 flex items-center justify-center rounded-full bg-gray-300 dark:bg-gray-700 cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+  <div class="w-12 h-12 flex items-center justify-center rounded-full glassmorphism dark:glassmorphism-dark cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-600 transition">
   <svg class="w-5 h-5 text-black dark:text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
     <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
   </svg>
@@ -159,7 +160,7 @@
     opacity: 1;
     transform: translateY(0);
   }
-  
+   /* Add a subtle pulse animation to the motto section
   .glassmorphism1, .glassmorphism-dark {
     transition: transform 0.5s ease, box-shadow 0.5s ease;
   }
@@ -172,7 +173,7 @@
   .glassmorphism-dark:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-  }
+  }*/
   
   /* Add a subtle pulse animation to the motto section */
   @keyframes pulse {
@@ -190,8 +191,8 @@
   }
 </style>
 
-<section id="about" class="min-h-screen flex items-center justify-center px-6 py-20 bg-gradient-light dark:bg-gradient-dark section-hidden">
-  <div class="max-w-7xl w-full glassmorphism1 dark:glassmorphism-dark p-8 md:p-12 shadow-xl text-gray-800 dark:text-gray-100">
+<section id="about" class="min-h-screen flex items-center justify-center px-6 py-20   section-hidden">
+  <div class="max-w-7xl w-full glassmorphism1   text-gray-800 dark:text-gray-100">
     <h2 class="text-4xl md:text-7xl font-extrabold mb-6 font-orbitron">About Me</h2>
     
     <p id="typewriter" class="text-2xl md:text-3xl font-sm leading-relaxed whitespace-pre-line tracking-wider font-orbitron"></p>
@@ -277,7 +278,7 @@
           <div class="w-20 h-20 flex items-center justify-center mb-2">
             <img src="${skill.logo}" alt="${skill.name}" class="w-full h-full object-contain hover:scale-110 transition-transform duration-300 animate-float">
           </div>
-          <span class="text-xs font-medium text-gray-600 dark:text-gray-300">${skill.name}</span>
+          <span class="text-sm font-medium text-gray-900 dark:text-white font-orbitron">${skill.name}</span>
         `;
         track.appendChild(div);
       });
@@ -299,8 +300,14 @@
   </script>
 
 
-<section id="motto" class="min-h-screen flex items-center justify-center px-6 py-20 bg-gradient-light dark:bg-gradient-dark section-hidden">
-  <div class="glassmorphism1 dark:glassmorphism-dark p-12 rounded-xl shadow-xl max-w-8xl text-center">
+<section id="motto" class="min-h-screen flex items-center justify-center px-6 py-20   section-hidden relative overflow-hidden">
+  <!-- Background text -->
+  <div class="absolute inset-0 flex items-center justify-center">
+    <span class="text-[20rem] md:text-[23rem] font-extrabold font-orbitron text-gray-900/10 dark:text-gray-100/10 tracking-wider">QUOTES</span>
+  </div>
+  
+  <!-- Content -->
+  <div class=" p-12  max-w-8xl text-center relative z-10">
     <h2 class="text-6xl md:text-8xl font-extrabold font-orbitron text-gray-900 dark:text-gray-100 leading-tight py-12">
      Hoping AI doesn't take over my job ... but also hoping it finishes my code...
     </h2>
@@ -366,19 +373,7 @@ Let's build something amazing together.
   aboutObserver.observe(document.getElementById('about'));
 
   // Add parallax effect on scroll
-  window.addEventListener('scroll', () => {
-    const scrollPosition = window.scrollY;
-    const aboutSection = document.getElementById('about');
-    const mottoSection = document.getElementById('motto');
-    
-    if (aboutSection) {
-      aboutSection.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
-    }
-    
-    if (mottoSection) {
-      mottoSection.style.backgroundPositionY = `${scrollPosition * 0.3}px`;
-    }
-  });
+
 </script>
  <style>
     .card-hover {
@@ -493,7 +488,7 @@ Let's build something amazing together.
 
 <section class="max-w-7xl mx-auto px-4 sm:px-6 min-h-screen py-12 sm:py-20 flex items-center justify-center profile-section">
     <!-- Enhanced Main Card - Wider and Taller -->
-    <div class="flex flex-col md:flex-row items-center gap-6 sm:gap-8  dark:bg-gray-800 p-6 sm:p-8 rounded-3xl shadow-xl card-hover border border-gray-100 dark:border-gray-700 w-full max-w-9xl h-auto sm:h-[65vh]">
+    <div class="flex flex-col md:flex-row items-center gap-6 sm:gap-8  dark:glassmorphism-dark p-6 sm:p-8 rounded-3xl shadow-xl card-hover border border-gray-100 dark:border-gray-700 w-full max-w-9xl h-auto sm:h-[65vh]">
         <!-- Profile Info -->
         <div class="flex flex-col md:flex-row items-center gap-4 sm:gap-6 md:w-1/2 profile-info">
             <div class="relative">
@@ -502,10 +497,10 @@ Let's build something amazing together.
             </div>
             <div class="text-center md:text-left">
                 <h1 class="text-3xl sm:text-4xl font-bold dark:text-gray-100 bg-clip-text text-black font-orbitron">Hi, I'm Raque Canete</h1>
-                <p class="text-gray-600 dark:text-gray-300 mt-2 sm:mt-3 text-base sm:text-xl max-w-md font-orbitron">
+                <p class="text-gray-800 dark:text-gray-300 mt-2 sm:mt-3 text-base sm:text-xl max-w-md font-orbitron tracking-wider">
                     I'm a passionate web developer and designer creating beautiful, functional digital experiences. 
-                    With expertise in both frontend and UI/UX design, I bring ideas to life with clean code and 
-                    thoughtful design principles. Together lets create something new, Contact me!
+                    I am currently a third-year BSIT student of Cordova Public College. I am willing to help you in making pleasant,
+                    thoughtful design websites. Together lets create something new, Contact me!
                 </p>
                 
                 <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-3 mt-5 sm:mt-6 button-group">
@@ -650,12 +645,12 @@ Let's build something amazing together.
     <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 max-w-8xl mx-auto">
         <div class="text-center mb-16">
             <h2 class="text-6xl font-bold text-gray-900 mb-4 font-orbitron dark:text-white">My Recent Projects</h2>
-            <p class="text-2xl text-gray-600 max-w-2xl mx-auto font-orbitron dark:text-white">Here are some of my recent works showcasing my skills in web development and design</p>
+            <p class="text-2xl text-gray-900 max-w-2xl mx-auto font-orbitron dark:text-white">Here are some of my recent works showcasing my skills in web development and design</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Project 1 -->
-            <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 glassmorphism bg-gradient-dark ">
+            <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 glassmorphism bg-gradient-dark dark:glassmorphism-dark ">
                 <div class="h-48 overflow-hidden">
                     <img src="./img/ecommerce.png" 
                          alt="Project 1" 
@@ -684,7 +679,7 @@ Let's build something amazing together.
                     </div>
                 </div>
             </div>
-             <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 glassmorphism bg-gradient-dark ">
+             <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 glassmorphism bg-gradient-dark dark:glassmorphism-dark ">
                 <div class="h-48 overflow-hidden">
                     <img src="./img/admin.png" 
                          alt="Project 1" 
@@ -699,7 +694,7 @@ Let's build something amazing together.
                     <h3 class="text-xl font-bold text-gray-900 mb-2 font-orbitron dark:text-white">Admin Dashboard</h3>
                     <p class="text-gray-600 mb-4 font-orbitron dark:text-white">Admin UI managing number of people sending request to their Barangay Officials.</p>
                     <div class="flex space-x-4">
-                        <a href="https://raquecanete.github.io/MGENTERPISE/" class="dark:text-blue-500 hover:text-blue-800 font-medium flex items-center text-blue-500">
+                        <a href="https://raquecanete.github.io/adminUI/" class="dark:text-blue-500 hover:text-blue-800 font-medium flex items-center text-blue-500">
                             <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                             </svg>
@@ -714,7 +709,7 @@ Let's build something amazing together.
                     </div>
                 </div>
             </div>
-            <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 glassmorphism bg-gradient-dark ">
+            <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 glassmorphism bg-gradient-dark dark:glassmorphism-dark">
                 <div class="h-48 overflow-hidden">
                     <img src="./img/lyric.png" 
                          alt="Project 1" 
@@ -729,7 +724,7 @@ Let's build something amazing together.
                     <h3 class="text-xl font-bold text-gray-900 mb-2 font-orbitron dark:text-white">Simple Lyric Show</h3>
                     <p class="text-gray-600 mb-4 font-orbitron dark:text-white">A simple lyric line animation.</p>
                     <div class="flex space-x-4">
-                        <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fee6824b9.ias-group1.pages.dev%2F%3Ffbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBEwNzhaVlg2U1NDMm1LVnVkUgEeDeeufYDt0j3TrUnbxAc9u_HWlKP1svUe9wdb6CCUtfRC1gw94j542lHic-A_aem_vqKQDO1RDQC7q_FD9bhp_w&h=AT3YWkBdFQtD0NZy2qiQrtCKddCbrP50qAMLLfOj0uKK83bBYUQvoRZ4TDGyleHFZSpbaxqsL4ae9t7Dcgqw79flHE91NKl9ERMotPKW6VkExkQD2hhkgP49onsCRagl2IuwTA" class="dark:text-blue-500 hover:text-blue-800 font-medium flex items-center text-blue-500">
+                        <a href="https://raquecanete.github.io/lyricline/" class="dark:text-blue-500 hover:text-blue-800 font-medium flex items-center text-blue-500">
                             <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                             </svg>
@@ -744,7 +739,7 @@ Let's build something amazing together.
                     </div>
                 </div>
             </div>
-            <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 glassmorphism bg-gradient-dark ">
+            <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 glassmorphism bg-gradient-dark dark:glassmorphism-dark ">
                 <div class="h-48 overflow-hidden">
                     <img src="./img/blog.png" 
                          alt="Project 1" 
@@ -774,7 +769,7 @@ Let's build something amazing together.
                     </div>
                 </div>
             </div>
-             <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 glassmorphism bg-gradient-dark ">
+             <div class="project-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 glassmorphism bg-gradient-dark dark:glassmorphism-dark ">
                 <div class="h-48 overflow-hidden">
                     <img src="./img/tonton1.png" 
                          alt="Project 1" 
@@ -829,7 +824,9 @@ Let's build something amazing together.
             });
         });
     </script>
-       <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-light dark:bg-gradient-dark " id="skills-section">
+
+    
+<section class="py-16 px-4 sm:px-6 lg:px-8 glassmorphism dark:glassmorphism-dark  " id="skills-section">
   <div class="max-w-5xl mx-auto">
     <h2 class="text-6xl font-bold text-center mb-12 text-gray-800 relative">
       <span class="relative inline-block font-orbitron dark:text-white">
@@ -840,7 +837,7 @@ Let's build something amazing together.
     
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <!-- JavaScript -->
-      <div class="skill-item glassmorphism p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300" data-percent="75">
+      <div class="skill-item glassmorphism p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 dark:glassmorphism-dark" data-percent="75">
         <div class="flex items-center mb-4">
           <div class="w-12 h-12 bg-yellow-50 rounded-lg flex items-center justify-center mr-4">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="w-8 h-8">
@@ -863,7 +860,7 @@ Let's build something amazing together.
       </div>
       
       <!-- HTML -->
-      <div class="skill-item glassmorphism p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300" data-percent="85">
+      <div class="skill-item glassmorphism p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 dark:glassmorphism-dark" data-percent="85">
         <div class="flex items-center mb-4">
           <div class="w-12 h-12 bg-orange-50 rounded-lg flex items-center justify-center mr-4">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" class="w-8 h-8">
@@ -886,7 +883,7 @@ Let's build something amazing together.
       </div>
       
       <!-- CSS -->
-      <div class="skill-item glassmorphism p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300" data-percent="80">
+      <div class="skill-item glassmorphism p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 dark:glassmorphism-dark" data-percent="80">
         <div class="flex items-center mb-4">
           <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mr-4">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" class="w-8 h-8">
@@ -909,7 +906,7 @@ Let's build something amazing together.
       </div>
       
       <!-- Tailwind CSS -->
-      <div class="skill-item glassmorphism p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300" data-percent="88">
+      <div class="skill-item glassmorphism p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 dark:glassmorphism-dark" data-percent="88">
         <div class="flex items-center mb-4">
           <div class="w-12 h-12 bg-cyan-50 rounded-lg flex items-center justify-center mr-4">
             <img src="./img/tailwind.png" alt="Tailwind CSS" class="w-8 h-8">
@@ -932,7 +929,7 @@ Let's build something amazing together.
       </div>
       
       <!-- Figma -->
-      <div class="skill-item glassmorphism p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300" data-percent="55">
+      <div class="skill-item glassmorphism p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 dark:glassmorphism-dark" data-percent="55">
         <div class="flex items-center mb-4">
           <div class="w-12 h-12 bg-purple-50 rounded-lg flex items-center justify-center mr-4">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" class="w-8 h-8">
@@ -955,7 +952,7 @@ Let's build something amazing together.
       </div>
       
       <!-- Vue.js -->
-      <div class="skill-item glassmorphism p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300" data-percent="40">
+      <div class="skill-item glassmorphism p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 dark:glassmorphism-dark " data-percent="40">
         <div class="flex items-center mb-4">
           <div class="w-12 h-12 bg-green-50 rounded-lg flex items-center justify-center mr-4">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" alt="Vue.js" class="w-8 h-8">
@@ -1100,6 +1097,612 @@ Let's build something amazing together.
   transform: translateX(-50%) translateY(0);
 }
 </style>
+<section id="achievements" class="min-h-screen w-full py-10 md:py-20 px-4 sm:px-6 lg:px-8 glassmorphism1 text-gray-900 font-orbitron dark:text-white">
+    <div class="max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-10 md:mb-16">
+            <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-2 md:mb-4 font-orbitron dark:text-white">My Achievements</h2>
+            <p class="text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto text-gray-900 dark:text-white">A showcase of my proudest accomplishments and milestones</p>
+        </div>
+        
+        <!-- Achievement Navigation - Now vertical on mobile -->
+        <div class="flex justify-center mb-8 md:mb-12">
+    <div class="grid grid-cols-2 sm:flex rounded-md gap-2 sm:gap-0" role="group">
+        <button type="button" data-category="all" class="achievement-filter px-4 py-2 text-sm sm:text-md font-medium sm:rounded-l-lg glassmorphism1 text-gray-900 dark:text-white transition-all font-orbitron w-full">
+            All
+        </button>
+        <button type="button" data-category="certificates" class="achievement-filter px-4 py-2 text-sm sm:text-md font-medium glassmorphism1 text-gray-900 dark:text-white transition-all font-orbitron w-full">
+            Certificates
+        </button>
+        <button type="button" data-category="academic" class="achievement-filter px-4 py-2 text-sm sm:text-md font-medium glassmorphism1 text-gray-900 dark:text-white transition-all font-orbitron w-full">
+            Academic
+        </button>
+        <button type="button" data-category="personal" class="achievement-filter px-4 py-2 text-sm sm:text-md font-medium sm:rounded-r-lg glassmorphism1 text-gray-900 dark:text-white transition-all font-orbitron w-full">
+            Personal
+        </button>
+    </div>
+</div>
+        
+        <!-- Achievement Grid - Adjusted gap for mobile -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8" id="achievement-container">
+            <!-- Achievement cards will be dynamically loaded here -->
+        </div>
+        
+        <!-- Stats Section - Single column on mobile -->
+        <div class="mt-12 md:mt-20 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
+            <div class="p-4 sm:p-6 glassmorphism1 rounded-xl backdrop-blur-sm">
+                <div class="text-3xl sm:text-4xl font-bold mb-2 achievement-counter" data-target="4">0</div>
+                <div class="text-sm sm:text-base text-gray-700 dark:text-gray-300">Projects Completed</div>
+            </div>
+            <div class="p-4 sm:p-6 glassmorphism1 rounded-xl backdrop-blur-sm">
+                <div class="text-3xl sm:text-4xl font-bold mb-2 achievement-counter" data-target="0">0</div>
+                <div class="text-sm sm:text-base text-gray-700 dark:text-gray-300">Awards Won</div>
+            </div>
+            <div class="p-4 sm:p-6 glassmorphism1 rounded-xl backdrop-blur-sm">
+                <div class="text-3xl sm:text-4xl font-bold mb-2 achievement-counter" data-target="3">0</div>
+                <div class="text-sm sm:text-base text-gray-700 dark:text-gray-300">Years Experience</div>
+            </div>
+            <div class="p-4 sm:p-6 glassmorphism1 rounded-xl backdrop-blur-sm">
+                <div class="text-3xl sm:text-4xl font-bold mb-2 achievement-counter" data-target="2">0</div>
+                <div class="text-sm sm:text-base text-gray-700 dark:text-gray-300">Happy Clients</div>
+            </div>
+        </div>
+    </div>
+    
+   <!-- Achievement Modal - Mobile optimized -->
+<div id="achievement-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-2 sm:p-4 bg-black bg-opacity-70">
+    <div class="glassmorphism rounded-xl w-full max-w-xs sm:max-w-md md:max-w-2xl max-h-[90vh] overflow-y-auto">
+        <div class="p-4 sm:p-6">
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <h3 id="modal-title" class="text-xl sm:text-2xl font-bold text-white dark:text-white"></h3>
+                    <span id="modal-category" class="inline-block mt-1 px-2 py-1 text-xs font-semibold rounded-full text-white"></span>
+                </div>
+                <button id="close-modal" class="text-white dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-2xl">&times;</button>
+            </div>
+            <div id="modal-date" class="text-sm sm:text-base text-white dark:text-white mb-4"></div>
+            <div class="mb-4 overflow-hidden rounded-lg">
+                <img id="modal-image" src="" alt="" class="w-full h-auto max-h-[300px] object-contain">
+            </div>
+            <div id="modal-description" class="text-sm sm:text-base text-white dark:text-white"></div>
+            <div class="mt-4 sm:mt-6 flex space-x-3">
+                <a id="modal-link" href="#" target="_blank" class="inline-flex items-center px-3 sm:px-4 py-1 sm:py-2 text-sm sm:text-base glassmorphism1 hover:bg-opacity-80 rounded-lg transition-all">
+                    <i class="fas fa-external-link-alt mr-2"></i> View More
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+    // Achievement data
+    const achievements = [
+        {
+            id: 1,
+            title: "Creative Web Design",
+            category: "certificates",
+            date: "December 2023",
+            description: "Received the prestigious Certificate of Training of Creative Web Design that improved my Web Dev efficiency .",
+            image: "./img/tesda.jpg",
+            link: "#"
+        },
+        {
+            id: 2,
+            title: "lorem",
+            category: "academic",
+            date: "May 2022",
+            description: "lorem",
+            image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+            link: "#"
+        },
+        {
+            id: 3,
+            title: "lorem",
+            category: "personal",
+            date: "October 2021",
+            description: "lorem",
+            image: "https://images.unsplash.com/photo-1543351611-58f69d7c1781?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+            link: "#"
+        },
+        {
+            id: 4,
+            title: "Published Research Paper",
+            category: "academic",
+            date: "March 2023",
+            description: "Co-authored a research paper on machine learning algorithms that was published in a peer-reviewed journal.",
+            image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+            link: "#"
+        },
+        {
+            id: 5,
+            title: "Employee of the Year",
+            category: "certificates",
+            date: "December 2022",
+            description: "Recognized as Employee of the Year for exceptional contributions to company projects and team leadership.",
+            image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
+            link: "#"
+        },
+        {
+            id: 6,
+            title: "Volunteer of the Month",
+            category: "personal",
+            date: "August 2021",
+            description: "Awarded Volunteer of the Month for dedicating over 100 hours to community service initiatives.",
+            image: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
+            link: "#"
+        }
+    ];
+
+    // DOM Elements
+    const achievementContainer = document.getElementById('achievement-container');
+    const filterButtons = document.querySelectorAll('.achievement-filter');
+    const modal = document.getElementById('achievement-modal');
+    const closeModal = document.getElementById('close-modal');
+    const counters = document.querySelectorAll('.achievement-counter');
+
+    // Initialize achievements
+    function loadAchievements(category = 'all') {
+        achievementContainer.innerHTML = '';
+        
+        const filteredAchievements = category === 'all' 
+            ? achievements 
+            : achievements.filter(ach => ach.category === category);
+        
+        filteredAchievements.forEach(achievement => {
+            const card = document.createElement('div');
+            card.className = 'achievement-card group relative glassmorphism p-6 rounded-xl shadow-lg  duration-300 dark:glassmorphism-dark hover:scale-[1.02] cursor-pointer dark:text-white';
+            card.dataset.id = achievement.id;
+            card.dataset.category = achievement.category;
+            
+            card.innerHTML = `
+                <div class="p-6">
+                    <span class="inline-block mb-2 px-2 py-1 text-xs font-semibold rounded-full ${getCategoryClass(achievement.category)}">
+                        ${capitalizeFirstLetter(achievement.category)}
+                    </span>
+                    <h3 class="text-2xl font-bold mb-2 dark:text-white">${achievement.title}</h3>
+                    <p class="text-gray-900 dark:text-white mb-4 text-sm">${achievement.date}</p>
+                    <p class="text-gray-900 line-clamp-2 text-lg dark:text-white">${achievement.description}</p>
+                </div>
+            `;
+            
+            achievementContainer.appendChild(card);
+        });
+        
+        // Add click event to all achievement cards
+        document.querySelectorAll('.achievement-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const id = parseInt(this.dataset.id);
+                const achievement = achievements.find(ach => ach.id === id);
+                openModal(achievement);
+            });
+        });
+    }
+
+    // Filter achievements
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('glassmorphism','shadow-lg'));
+            this.classList.add('glassmorphism','shadow-lg');
+            
+            // Filter achievements
+            const category = this.dataset.category;
+            loadAchievements(category);
+        });
+    });
+
+    // Open achievement modal
+    function openModal(achievement) {
+        document.getElementById('modal-title').textContent = achievement.title;
+        document.getElementById('modal-date').textContent = achievement.date;
+        document.getElementById('modal-description').textContent = achievement.description;
+        document.getElementById('modal-image').src = achievement.image;
+        document.getElementById('modal-image').alt = achievement.title;
+        document.getElementById('modal-link').href = achievement.link;
+        
+        const categoryElement = document.getElementById('modal-category');
+        categoryElement.textContent = capitalizeFirstLetter(achievement.category);
+        categoryElement.className = `inline-block mt-1 px-2 py-1 text-xs font-semibold rounded-full ${getCategoryClass(achievement.category)}`;
+        
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+    }
+
+    // Close modal
+    closeModal.addEventListener('click', function() {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    });
+
+    // Close modal when clicking outside
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+    });
+
+    // Animate counters
+    function animateCounters() {
+        counters.forEach(counter => {
+            const target = parseInt(counter.dataset.target);
+            const duration = 2000; // Animation duration in ms
+            const step = target / (duration / 16); // 60fps
+            
+            let current = 0;
+            const updateCounter = () => {
+                current += step;
+                if (current < target) {
+                    counter.textContent = Math.ceil(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.textContent = target;
+                }
+            };
+            
+            updateCounter();
+        });
+    }
+
+    // Helper functions
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    function getCategoryClass(category) {
+        const classes = {
+            professional: 'bg-blue-500 text-blue-100',
+            academic: 'bg-green-500 text-green-100',
+            personal: 'bg-purple-500 text-purple-100'
+        };
+        return classes[category] || 'bg-gray-500 text-gray-100';
+    }
+
+    // Initialize
+    loadAchievements();
+    animateCounters();
+    
+    // Set first filter button as active
+});
+</script>
+ <section id="services" class="min-h-screen py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <!-- Section Header -->
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-6xl font-bold text-gray-900 mb-4 font-orbitron dark:text-white">My Services</h2>
+                <p class="text-2xl text-gray-900 font-orbitron dark:text-white">
+                    Professional digital solutions tailored to your specific needs
+                </p>
+            </div>
+
+            <!-- Services List -->
+            <div class="space-y-4">
+                <!-- Service 1 - Web Portfolio -->
+                <div class="service-item  overflow-hidden">
+                    <button class="service-toggle w-full flex justify-between items-center p-6 text-left">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12  rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-laptop-code text-black text-xl dark:text-white"></i>
+                            </div>
+                            <h3 class="text-4xl font-bold text-gray-900 font-orbitron dark:text-white ">Personal Portfolio Websites</h3>
+                        </div>
+                        <i class="fas fa-chevron-down text-black dark:text-white transition-transform duration-300"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <div class="px-6 pb-6 pt-2 border-t border-gray-100">
+                            <p class="text-gray-900 font-orbitron mb-4 dark:text-white">
+                                I create stunning, responsive portfolio websites that showcase your work and personality with elegant design and smooth animations.
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <ul class="text-gray-900 font-orbitron space-y-2 dark:text-white">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>Custom design reflecting your brand</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>Project showcase with filtering</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>Mobile-first responsive design</span>
+                                    </li>
+                                </ul>
+                                <ul class="text-gray-900 font-orbitron dark:text-white space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>SEO optimized structure</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>Contact forms integration</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>Fast loading performance</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mt-6">
+                                <a href="#contact" class="inline-block glassmorphism shadow-lg font-orbitron text-gray-900 px-6 py-2 rounded-lg dark:text-white transition">
+                                    Get Started
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2 - UI/UX Design -->
+                <div class="service-item overflow-hidden">
+                    <button class="service-toggle w-full flex justify-between items-center p-6 text-left">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-pencil-ruler text-black text-xl dark:text-white"></i>
+                            </div>
+                            <h3 class="text-4xl font-bold text-gray-900 font-orbitron dark:text-white">UI/UX Design</h3>
+                        </div>
+                        <i class="fas fa-chevron-down text-black dark:text-white transition-transform duration-300"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <div class="px-6 pb-6 pt-2 border-t border-gray-100">
+                            <p class="text-gray-900 font-orbitron mb-4 dark:text-white mb-4">
+                                Professional user interface and experience design that combines aesthetics with functionality for optimal user engagement.
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <ul class="text-gray-900 font-orbitron  dark:text-white space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>User research and persona development</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>Information architecture planning</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>Wireframing and prototyping</span>
+                                    </li>
+                                </ul>
+                              <ul class="text-gray-900 font-orbitron space-y-2 dark:text-white">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>Usability testing and iteration</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>Design system creation</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>Accessibility compliance</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mt-6">
+                                <a href="#contact" class="inline-block glassmorphism shadow-lg font-orbitron text-gray-900 px-6 py-2 rounded-lg dark:text-white transition">
+                                    Get Started
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3 - E-commerce -->
+                <div class="service-item  overflow-hidden">
+                    <button class="service-toggle w-full flex justify-between items-center p-6 text-left">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12  rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-shopping-cart text-black text-xl dark:text-white"></i>
+                            </div>
+                            <h3 class="text-4xl font-bold text-gray-900 font-orbitron dark:text-white ">E-commerce Platforms</h3>
+                        </div>
+                        <i class="fas fa-chevron-down dark:text-white text-black transition-transform duration-300"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <div class="px-6 pb-6 pt-2 border-t border-gray-100">
+                            <p class="text-gray-900 font-orbitron mb-4 dark:text-white mb-4">
+                                Complete online store solutions with secure payment processing, inventory management, and conversion-optimized design.
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <ul class="text-gray-900 font-orbitron  dark:text-white space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>Product catalog management</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>Secure payment gateway integration</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>Shopping cart and checkout system</span>
+                                    </li>
+                                </ul>
+                                <ul class="text-gray-900 font-orbitron  dark:text-white space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>Order tracking and management</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>Customer accounts and reviews</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>Mobile-responsive design</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mt-6">
+                                <a href="#contact" class="inline-block glassmorphism shadow-lg font-orbitron text-gray-900 px-6 py-2 rounded-lg dark:text-white transition">
+                                    Get Started
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 4 - Figma Designs -->
+                <div class="service-item overflow-hidden">
+                    <button class="service-toggle w-full flex justify-between items-center p-6 text-left">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12  rounded-lg flex items-center justify-center mr-4">
+                                <i class="fab fa-figma text-black dark:text-white text-2xl"></i>
+                            </div>
+                            <h3 class="text-4xl font-bold text-gray-900 font-orbitron dark:text-white ">Figma Designs</h3>
+                        </div>
+                        <i class="fas fa-chevron-down dark:text-white text-black transition-transform duration-300"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <div class="px-6 pb-6 pt-2 border-t border-gray-100">
+                            <p class="text-gray-900 font-orbitron mb-4 dark:text-white mb-4">
+                                Pixel-perfect Figma designs and interactive prototypes for websites, mobile apps, and digital products.
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <ul class="text-gray-900 font-orbitron  dark:text-white space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>High-fidelity mockups</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>Interactive prototypes with animations</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>Design system components</span>
+                                    </li>
+                                </ul>
+                                <ul class="text-gray-900 font-orbitron  dark:text-white space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>User flow diagrams</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>Design handoff documentation</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>Collaborative design process</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mt-6">
+                                <a href="#contact" class="inline-block glassmorphism shadow-lg font-orbitron text-gray-900 px-6 py-2 rounded-lg dark:text-white transition">
+                                    Get Started
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 5 - Frontend Projects -->
+                <div class="service-item overflow-hidden">
+                    <button class="service-toggle w-full flex justify-between items-center p-6 text-left">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12  rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-code text-black dark:text-white text-xl"></i>
+                            </div>
+                            <h3 class="text-4xl font-bold text-gray-900 font-orbitron dark:text-white ">Frontend Development</h3>
+                        </div>
+                        <i class="fas fa-chevron-down dark:text-white text-black transition-transform duration-300"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <div class="px-6 pb-6 pt-2 border-t border-gray-100">
+                            <p class="text-gray-900 mb-4 font-orbitron">
+                                Clean, efficient frontend code implementation using modern technologies and best practices.
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <ul class="text-gray-900 font-orbitron  dark:text-white space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>HTML5, CSS3, JavaScript (ES6+)</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>React.js, Vue.js frameworks</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>Tailwind CSS, SASS styling</span>
+                                    </li>
+                                </ul>
+                                <ul class="text-gray-900 font-orbitron  dark:text-white space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>Responsive, mobile-first approach</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>Performance optimization</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-indigo-500 mt-1 mr-2"></i>
+                                        <span>Cross-browser compatibility</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mt-6">
+                                <a href="#contact" class="inline-block glassmorphism shadow-lg font-orbitron text-gray-900 px-6 py-2 rounded-lg dark:text-white transition">
+                                    Get Started
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const serviceToggles = document.querySelectorAll('.service-toggle');
+            
+            serviceToggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const serviceItem = this.closest('.service-item');
+                    const dropdownContent = serviceItem.querySelector('.dropdown-content');
+                    const chevron = this.querySelector('i');
+                    
+                    // Toggle the clicked item
+                    dropdownContent.classList.toggle('open');
+                    
+                    // Close other open items
+                    serviceToggles.forEach(otherToggle => {
+                        if (otherToggle !== this) {
+                            const otherItem = otherToggle.closest('.service-item');
+                            const otherContent = otherItem.querySelector('.dropdown-content');
+                            const otherChevron = otherToggle.querySelector('i');
+                            
+                            otherContent.classList.remove('open');
+                            otherChevron.classList.remove('rotate-180');
+                        }
+                    });
+                });
+            });
+            
+            // Optional: Open first item by default
+            // document.querySelector('.service-toggle').click();
+        });
+    </script>
+     <style>
+        .service-item {
+            transition: all 0.3s ease;
+        }
+        .dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .dropdown-content.open {
+            max-height: 1000px;
+        }
+        .rotate-180 {
+            transform: rotate(180deg);
+        }
+    </style>
  <section class="min-h-screen w-full glassmorphism1 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-4 sm:p-8" id="contact">
   <!-- Contact Container -->
   <div class="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-center">
@@ -1149,7 +1752,7 @@ Let's build something amazing together.
     </div>
 
     <!-- Right Section - Contact Form -->
-    <div class="dark:bg-gradient-dark p-4 sm:p-6 md:p-8 rounded-2xl shadow-lg order-1 lg:order-2">
+    <div class=" p-4 sm:p-6 md:p-8 rounded-2xl shadow-lg order-1 lg:order-2 dark:glassmorphism-dark">
       <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-center font-orbitron dark:text-white">
         <span class="text-black dark:text-white">Get In Touch</span>
       </h2>
@@ -1195,7 +1798,7 @@ Let's build something amazing together.
               name="from_name"
               placeholder="Enter your name"
               required
-              class="w-full px-3 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base border border-gray-300 font-orbitron dark:border-gray-600 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700/50 dark:text-white transition-all duration-200"
+              class="w-full px-3 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base border border-gray-300 glassmorphism font-orbitron dark:border-gray-600 rounded-lg sm:rounded-xl  dark:bg-gray-700/50 dark:text-white transition-all duration-200"
             />
           </div>
 
@@ -1207,7 +1810,7 @@ Let's build something amazing together.
               name="from_email"
               placeholder="Enter your email address"
               required
-              class="w-full px-3 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base border border-gray-300 dark:border-gray-600 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700/50 dark:text-white transition-all duration-200 font-orbitron"
+              class="w-full px-3 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base border border-gray-300 glassmorphism dark:border-gray-600 rounded-lg sm:rounded-xl  dark:bg-gray-700/50 dark:text-white transition-all duration-200 font-orbitron"
             />
           </div>
 
@@ -1219,7 +1822,7 @@ Let's build something amazing together.
               rows="3"
               placeholder="Write your message..."
               required
-              class="w-full px-3 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base border border-gray-300 dark:border-gray-600 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700/50 dark:text-white transition-all duration-200 font-orbitron"
+              class="w-full px-3 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base border border-gray-300 dark:border-gray-600 glassmorphism sm:rounded-xl  dark:bg-gray-700/50 dark:text-white transition-all duration-200 font-orbitron"
             ></textarea>
           </div>
 
@@ -1368,6 +1971,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 }
 </style>
+
  <footer class="glassmorphism py-8 px-4 sm:px-6 lg:px-8 dark:bg-gradient-dark">
         <div class="max-w-7xl mx-auto">
             <!-- Columns section -->
@@ -1376,21 +1980,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div>
                     <h3 class="text-lg font-semibold text-gray-900 mb-4 font-orbitron dark:text-white">Services</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900 font-orbitron dark:text-gray-300">Personal Portfolio</a></li>
-                        <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900 font-orbitron dark:text-gray-300">E-commerce Platform</a></li>
-                        <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900 font-orbitron dark:text-gray-300">Figma UI Designs</a></li>
-                        <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900 font-orbitron dark:text-gray-300">UI/UX Designs</a></li>
+                        <li><a href="#services" class="text-sm text-gray-600 hover:text-gray-900 font-orbitron dark:text-gray-300">Personal Portfolio</a></li>
+                        <li><a href="#services" class="text-sm text-gray-600 hover:text-gray-900 font-orbitron dark:text-gray-300">E-commerce Platform</a></li>
+                        <li><a href="#services" class="text-sm text-gray-600 hover:text-gray-900 font-orbitron dark:text-gray-300">Figma UI Designs</a></li>
+                        <li><a href="#services" class="text-sm text-gray-600 hover:text-gray-900 font-orbitron dark:text-gray-300">UI/UX Designs</a></li>
                     </ul>
                 </div>       
                 <!-- Column 3 -->
                 <div>
                     <h3 class="text-lg font-semibold text-gray-900 mb-4 font-orbitron dark:text-white">About Me</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900 font-orbitron dark:text-gray-300">Home</a></li>
-                        <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900 font-orbitron dark:text-gray-300">My Info</a></li>
-                        <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900 font-orbitron dark:text-gray-300">Projects</a></li>
-                         <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900 font-orbitron dark:text-gray-300">Skills</a></li>
-                          <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900 font-orbitron dark:text-gray-300">Achievements</a></li>
+                        <li><a href="#home" class="text-sm text-gray-600 hover:text-gray-900 font-orbitron dark:text-gray-300">Home</a></li>
+                        <li><a href="#about" class="text-sm text-gray-600 hover:text-gray-900 font-orbitron dark:text-gray-300">My Info</a></li>
+                        <li><a href="#projects" class="text-sm text-gray-600 hover:text-gray-900 font-orbitron dark:text-gray-300">Projects</a></li>
+                         <li><a href="#skills-section" class="text-sm text-gray-600 hover:text-gray-900 font-orbitron dark:text-gray-300">Skills</a></li>
+                          <li><a href="#achievements" class="text-sm text-gray-600 hover:text-gray-900 font-orbitron dark:text-gray-300">Achievements</a></li>
                     </ul>
                 </div>
                 
@@ -1422,12 +2026,16 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     </footer>
 
+
+
+
+
     <!-- Glassmorphism Navbar -->
     <nav class="fixed bottom-6 left-1/2 transform -translate-x-1/2 glassmorphism dark:glassmorphism-dark rounded-full p-2 shadow-lg">
         <div class="flex items-center space-x-4 px-4">
             <!-- Home -->
             <a href="#home" class="p-3 rounded-full hover:bg-white/30 dark:hover:bg-black/30 transition-all" title="Home">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-gray-700 dark:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-gray-900 dark:text-white">
                     <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
                     <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
                 </svg>
@@ -1435,26 +2043,27 @@ document.addEventListener('DOMContentLoaded', () => {
             
             <!-- About Me -->
             <a href="#about" class="p-3 rounded-full hover:bg-white/30 dark:hover:bg-black/30 transition-all" title="About Me">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-gray-700 dark:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-gray-900 dark:text-white">
                     <path fill-rule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clip-rule="evenodd" />
                 </svg>
             </a>
             
             <!-- Projects/Code -->
             <a href="#projects" class="p-3 rounded-full hover:bg-white/30 dark:hover:bg-black/30 transition-all" title="Projects">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-gray-700 dark:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-gray-900 dark:text-white">
                     <path fill-rule="evenodd" d="M14.447 3.027a.75.75 0 01.527.92l-4.5 16.5a.75.75 0 01-1.448-.394l4.5-16.5a.75.75 0 01.921-.526zM16.72 6.22a.75.75 0 011.06 0l5.25 5.25a.75.75 0 010 1.06l-5.25 5.25a.75.75 0 11-1.06-1.06L21.44 12l-4.72-4.72a.75.75 0 010-1.06zm-9.44 0a.75.75 0 010 1.06L2.56 12l4.72 4.72a.75.75 0 11-1.06 1.06L.97 12.53a.75.75 0 010-1.06l5.25-5.25a.75.75 0 011.06 0z" clip-rule="evenodd" />
                 </svg>
             </a>
             
+            
             <!-- GitHub -->
             <a href="https://github.com" target="_blank" class="p-3 rounded-full hover:bg-white/30 dark:hover:bg-black/30 transition-all" title="GitHub">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-gray-700 dark:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-gray-900 dark:text-white">
                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                 </svg>
             </a>
              <button id="theme-toggle" class="p-2 rounded-full focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white">
-                <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-gray-700 dark:text-white">
+                <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-gray-900 dark:text-white">
                     <path id="theme-path" d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" />
                 </svg>
             </button>

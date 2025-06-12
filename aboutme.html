@@ -1292,5 +1292,20 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     </script>
+      // Add parallax effect on scroll
+  window.addEventListener('scroll', () => {
+    const scrollPosition = window.scrollY;
+    const aboutSection = document.getElementById('about');
+    const mottoSection = document.getElementById('motto');
+    
+    if (aboutSection) {
+      aboutSection.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+    }
+    
+    if (mottoSection) {
+      mottoSection.style.backgroundPositionY = `${scrollPosition * 0.3}px`;
+    }
+  });
+
 </body>
 </html>
